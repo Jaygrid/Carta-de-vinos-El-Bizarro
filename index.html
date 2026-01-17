@@ -1,46 +1,230 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Carta de Vinos · Restaurante</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Carta de Vinos · El Bizarro</title>
+
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #000;
+      color: #fff;
+      line-height: 1.5;
+    }
+
+    header {
+      text-align: center;
+      padding: 2rem 1rem;
+      border-bottom: 1px solid #222;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2.2rem;
+    }
+
+    h2 {
+      margin: .5rem 0 0;
+      font-weight: 300;
+      color: #ccc;
+    }
+
+    section {
+      padding: 1rem;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    section > h3 {
+      margin-top: 2.5rem;
+      font-size: 1.6rem;
+      border-bottom: 1px solid #333;
+      padding-bottom: .5rem;
+    }
+
+    .vino {
+      display: flex;
+      gap: 1rem;
+      background: #111;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 12px;
+      align-items: center;
+    }
+
+    .vino img {
+      width: 90px;
+      object-fit: contain;
+    }
+
+    .vino h4 {
+      margin: 0 0 .3rem 0;
+      font-size: 1.1rem;
+    }
+
+    .vino p {
+      margin: .15rem 0;
+      font-size: .95rem;
+    }
+
+    .bodega { color: #bbb; }
+    .precio { margin-top: .4rem; font-weight: 600; }
+
+    @media (max-width: 600px) {
+      .vino {
+        flex-direction: column;
+        text-align: center;
+      }
+      .vino img {
+        width: 120px;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
 <header>
   <h1>Carta de Vinos</h1>
-  <p>Disfruta nuestra selección</p>
+  <h2>Restaurante El Bizarro</h2>
 </header>
 
 <section>
 
-  <!-- Extremadura -->
-  <h2>Extremadura</h2>
+  <!-- EXTREMADURA -->
+  <h3>Extremadura</h3>
 
-  <article class="vino">
-    <img src="images/botella-genérica.png" alt="Botella genérica">
+  <div class="vino">
+    <img src="images/botella-generica.png">
     <div>
-      <h3>Gotas de Habla</h3>
-      <p><strong>Zona:</strong> Trujillo</p>
-      <p><strong>Uva:</strong> Variedades</p>
+      <h4>Gotas de Habla</h4>
+      <p class="bodega">Bodegas Habla · Trujillo</p>
+      <p><strong>Uvas:</strong> Variedades</p>
       <p><strong>Crianza:</strong> 4 meses en barricas de roble francés</p>
-      <p class="precio"><strong>Precio:</strong> Copa: 2,75 € · Botella: 15,00 €</p>
+      <p class="precio">Copa: 2,75 € · Botella: 15,00 €</p>
     </div>
-  </article>
+  </div>
 
-  <article class="vino">
-    <img src="images/botella-genérica.png" alt="Botella genérica">
+  <div class="vino">
+    <img src="images/botella-generica.png">
     <div>
-      <h3>Habla del Silencio</h3>
-      <p><strong>Zona:</strong> Trujillo</p>
-      <p><strong>Uva:</strong> Tempranillo, Cabernet Sauvignon, Syrah</p>
+      <h4>Habla del Silencio</h4>
+      <p class="bodega">Bodegas Habla · Trujillo</p>
+      <p><strong>Uvas:</strong> Tempranillo / Cabernet Sauvignon / Syrah</p>
       <p><strong>Crianza:</strong> 6 meses en barricas de roble francés</p>
-      <p class="precio"><strong>Precio:</strong> Botella: 20,00 €</p>
+      <p class="precio">Botella: 20,00 €</p>
     </div>
-  </article>
+  </div>
 
-  <!-- Seguirías con todas las regiones igual -->
+  <div class="vino">
+    <img src="images/botella-generica.png">
+    <div>
+      <h4>Quinta Alaude</h4>
+      <p class="bodega">Bodegas Alaude · Oliva de la Frontera</p>
+      <p><strong>Uvas:</strong> Tempranillo / Cabernet Sauvignon</p>
+      <p><strong>Crianza:</strong> 9 meses en barrica de roble americano</p>
+      <p class="precio">Copa: 2,75 € · Botella: 15,00 €</p>
+    </div>
+  </div>
+
+  <div class="vino">
+    <img src="images/botella-generica.png">
+    <div>
+      <h4>Palacio Quemado Crianza</h4>
+      <p class="bodega">Palacio Quemado · Alange</p>
+      <p><strong>Uvas:</strong> Tempranillo / Cabernet Sauvignon</p>
+      <p><strong>Crianza:</strong> 9 meses en barricas de roble francés y americano</p>
+      <p class="precio">Copa: 2,75 € · Botella: 15,00 €</p>
+    </div>
+  </div>
+
+  <!-- RIBERA DEL DUERO -->
+  <h3>Ribera del Duero</h3>
+
+  <div class="vino">
+    <img src="images/botella-generica.png">
+    <div>
+      <h4>Protos Roble</h4>
+      <p class="bodega">Bodegas Protos · Peñafiel</p>
+      <p><strong>Uvas:</strong> Tempranillo</p>
+      <p><strong>Crianza:</strong> 6 meses en barricas de roble francés y americano</p>
+      <p class="precio">Copa: 3,00 € · Botella: 16,00 €</p>
+    </div>
+  </div>
+
+  <div class="vino">
+    <img src="images/botella-generica.png">
+    <div>
+      <h4>Pruno</h4>
+      <p class="bodega">Finca Villacreces · Quintanilla de Onésimo</p>
+      <p><strong>Uvas:</strong> Tempranillo / Cabernet Sauvignon</p>
+      <p><strong>Crianza:</strong> 12 meses en barricas de roble francés</p>
+      <p class="precio">Botella: 19,00 €</p>
+    </div>
+  </div>
+
+  <div class="vino">
+    <img src="images/botella-generica.png">
+    <div>
+      <h4>Emilio Moro</h4>
+      <p class="bodega">Emilio Moro · Pesquera del Duero</p>
+      <p><strong>Uvas:</strong> Tempranillo</p>
+      <p><strong>Crianza:</strong> 12 meses en barricas de roble francés y americano</p>
+      <p class="precio">Botella: 28,00 €</p>
+    </div>
+  </div>
+
+  <!-- RIOJA -->
+  <h3>Rioja</h3>
+
+  <div class="vino">
+    <img src="images/botella-generica.png">
+    <div>
+      <h4>Izadi Crianza</h4>
+      <p class="bodega">Bodegas Izadi · Villabuena de Álava</p>
+      <p><strong>Uvas:</strong> Tempranillo</p>
+      <p><strong>Crianza:</strong> 14 meses en roble francés y americano</p>
+      <p class="precio">Copa: 3,00 € · Botella: 18,00 €</p>
+    </div>
+  </div>
+
+  <div class="vino">
+    <img src="images/botella-generica.png">
+    <div>
+      <h4>Muga</h4>
+      <p class="bodega">Bodegas Muga · Haro</p>
+      <p><strong>Uvas:</strong> Tempranillo / Garnacha / Graciano / Mazuelo</p>
+      <p><strong>Crianza:</strong> 24 meses en barricas de tonelería propia</p>
+      <p class="precio">Botella: 33,00 €</p>
+    </div>
+  </div>
+
+  <!-- PREMIUM -->
+  <h3>Premium</h3>
+
+  <div class="vino">
+    <img src="images/botella-generica.png">
+    <div>
+      <h4>Vega Sicilia Valbuena 5º Año</h4>
+      <p class="bodega">D.O. Ribera del Duero</p>
+      <p><strong>Crianza:</strong> 5 años entre madera y botella</p>
+      <p class="precio">Botella: 160,00 €</p>
+    </div>
+  </div>
+
+  <div class="vino">
+    <img src="images/botella-generica.png">
+    <div>
+      <h4>Flor de Pingus</h4>
+      <p class="bodega">Dominio de Pingus</p>
+      <p><strong>Uvas:</strong> Tinto Fino</p>
+      <p class="precio">Botella: 210,00 €</p>
+    </div>
+  </div>
 
 </section>
 
