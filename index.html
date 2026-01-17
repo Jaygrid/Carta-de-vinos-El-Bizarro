@@ -1,232 +1,479 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Carta de Vinos · El Bizarro</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    * { box-sizing: border-box; }
+<title>Carta de Vinos · El Restaurante Bizarro</title>
 
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      background: #000;
-      color: #fff;
-      line-height: 1.5;
-    }
+<style>
+:root{
+  --bg:#000000;
+  --card:#141414;
+  --accent:#ffffff;
+  --muted:#bbbbbb;
+  --text:#ffffff;
+}
 
-    header {
-      text-align: center;
-      padding: 2rem 1rem;
-      border-bottom: 1px solid #222;
-    }
+body{
+  margin:0;
+  padding:20px;
+  background:var(--bg);
+  color:var(--text);
+  font-family:system-ui, Arial, sans-serif;
+  text-align:center;
+}
 
-    h1 {
-      margin: 0;
-      font-size: 2.2rem;
-    }
+/* LOGO */
+.logo img{
+  width:30vw;
+  max-width:300px;
+  height:auto;
+  display:block;
+  margin:0 auto 20px auto;
+}
 
-    h2 {
-      margin: .5rem 0 0;
-      font-weight: 300;
-      color: #ccc;
-    }
+h1{
+  font-size:26px;
+  margin:0;
+}
 
-    section {
-      padding: 1rem;
-      max-width: 900px;
-      margin: auto;
-    }
+.sub{
+  font-size:13px;
+  color:var(--muted);
+  margin-top:6px;
+  line-height:1.4;
+}
 
-    section > h3 {
-      margin-top: 2.5rem;
-      font-size: 1.6rem;
-      border-bottom: 1px solid #333;
-      padding-bottom: .5rem;
-    }
+/* SECCIONES */
+details{
+  background:var(--card);
+  padding:10px 14px;
+  border-radius:10px;
+  margin-top:14px;
+}
 
-    .vino {
-      display: flex;
-      gap: 1rem;
-      background: #111;
-      padding: 1rem;
-      margin: 1rem 0;
-      border-radius: 12px;
-      align-items: center;
-    }
+summary{
+  font-size:18px;
+  cursor:pointer;
+  list-style:none;
+  outline:none;
+}
 
-    .vino img {
-      width: 90px;
-      object-fit: contain;
-    }
+summary::-webkit-details-marker{
+  display:none;
+}
 
-    .vino h4 {
-      margin: 0 0 .3rem 0;
-      font-size: 1.1rem;
-    }
+details[open]{
+  background:#111;
+  transition:background .2s;
+}
 
-    .vino p {
-      margin: .15rem 0;
-      font-size: .95rem;
-    }
+/* VINO */
+.vino{
+  display:flex;
+  gap:12px;
+  padding:12px 6px;
+  margin-bottom:6px;
+  border-bottom:1px solid #222;
+  text-align:left;
+}
 
-    .bodega { color: #bbb; }
-    .precio { margin-top: .4rem; font-weight: 600; }
+.vino:last-child{
+  border-bottom:none;
+}
 
-    @media (max-width: 600px) {
-      .vino {
-        flex-direction: column;
-        text-align: center;
-      }
-      .vino img {
-        width: 120px;
-      }
-    }
-  </style>
+.vino img{
+  height:90px;          /* ALTURA IGUAL PARA TODAS */
+  width:auto;
+  object-fit:contain;
+  flex-shrink:0;
+}
+
+.vino .info{
+  flex:1;
+}
+
+.vino .nombre{
+  font-size:17px;
+  font-weight:600;
+}
+
+.vino .bodega{
+  font-size:13px;
+  color:var(--muted);
+}
+
+.vino .desc{
+  font-size:13px;
+  margin-top:4px;
+  line-height:1.3;
+}
+
+.vino .precio{
+  font-size:14px;
+  font-weight:600;
+  margin-top:4px;
+}
+
+/* MÓVIL */
+@media(max-width:600px){
+  .vino{
+    flex-direction:row;
+  }
+}
+</style>
+
 </head>
-
 <body>
 
-<header>
-  <h1>Carta de Vinos</h1>
-  <h2>Restaurante El Bizarro</h2>
-</header>
+<!-- LOGO -->
+<div class="logo">
+  <img src="logo-bizarro-blanco.png" alt="El Bizarro">
+</div>
 
-<section>
-
-  <!-- EXTREMADURA -->
-  <h3>Extremadura</h3>
+<h1>Carta de Vinos</h1>
+<!--
+  <div class="sub">Selección de vinos por denominación</div>
+-->
+  
+<!-- ================= EXTREMADURA ================= -->
+<details>
+  <summary>Extremadura</summary>
 
   <div class="vino">
-    <img src="https://raw.githubusercontent.com/Jaygrid/Carta-de-vinos-El-Bizarro/refs/heads/ImgBotellas/Gotas.jpg">
-    <div>
-      <h4>Gotas de Habla</h4>
-      <p class="bodega">Bodegas Habla · Trujillo</p>
-      <p><strong>Uvas:</strong> Variedades</p>
-      <p><strong>Crianza:</strong> 4 meses en barricas de roble francés</p>
-      <p class="precio">Copa: 2,75 € · Botella: 15,00 €</p>
+    <img src="https://raw.githubusercontent.com/Jaygrid/Carta-de-vinos-El-Bizarro/refs/heads/main/Botellas/Gotas.jpg">
+    <div class="info">
+      <div class="nombre">Gotas de Habla</div>
+      <div class="bodega">Bodegas Habla · Trujillo</div>
+      <div class="desc">
+        Uvas: Variedades<br>
+        Crianza: 4 meses en barricas de roble francés
+      </div>
+      <div class="precio">Copa 2,75€ · Botella 15,00€</div>
     </div>
   </div>
 
   <div class="vino">
-    <img src="images/botella-generica.png">
-    <div>
-      <h4>Habla del Silencio</h4>
-      <p class="bodega">Bodegas Habla · Trujillo</p>
-      <p><strong>Uvas:</strong> Tempranillo / Cabernet Sauvignon / Syrah</p>
-      <p><strong>Crianza:</strong> 6 meses en barricas de roble francés</p>
-      <p class="precio">Botella: 20,00 €</p>
+    <img src="https://raw.githubusercontent.com/Jaygrid/Carta-de-vinos-El-Bizarro/refs/heads/main/Botellas/h-silencio-1.jpg">
+    <div class="info">
+      <div class="nombre">Habla del Silencio</div>
+      <div class="bodega">Bodegas Habla · Trujillo</div>
+      <div class="desc">
+        Uvas: Tempranillo / Cabernet Sauvignon / Syrah<br>
+        Crianza: 6 meses en barricas de roble francés
+      </div>
+      <div class="precio">Botella 20,00€</div>
     </div>
   </div>
 
   <div class="vino">
-    <img src="images/botella-generica.png">
-    <div>
-      <h4>Quinta Alaude</h4>
-      <p class="bodega">Bodegas Alaude · Oliva de la Frontera</p>
-      <p><strong>Uvas:</strong> Tempranillo / Cabernet Sauvignon</p>
-      <p><strong>Crianza:</strong> 9 meses en barrica de roble americano</p>
-      <p class="precio">Copa: 2,75 € · Botella: 15,00 €</p>
+    <img src="https://raw.githubusercontent.com/Jaygrid/Carta-de-vinos-El-Bizarro/refs/heads/main/Botellas/alaude.jpg">
+    <div class="info">
+      <div class="nombre">Quinta Alaude</div>
+      <div class="bodega">Bodegas Alaude · Oliva de la Frontera</div>
+      <div class="desc">
+        Uvas: Tempranillo / Cabernet Sauvignon<br>
+        Crianza: 9 meses en roble americano
+      </div>
+      <div class="precio">Copa 2,75€ · Botella 15,00€</div>
     </div>
   </div>
-
-  <div class="vino">
-    <img src="images/botella-generica.png">
-    <div>
-      <h4>Palacio Quemado Crianza</h4>
-      <p class="bodega">Palacio Quemado · Alange</p>
-      <p><strong>Uvas:</strong> Tempranillo / Cabernet Sauvignon</p>
-      <p><strong>Crianza:</strong> 9 meses en barricas de roble francés y americano</p>
-      <p class="precio">Copa: 2,75 € · Botella: 15,00 €</p>
+<div class="vino">
+  <img src="https://raw.githubusercontent.com/Jaygrid/Carta-de-vinos-El-Bizarro/refs/heads/main/Botellas/Palacio-Quemado.jpg">
+  <div class="info">
+    <div class="nombre">Palacio Quemado Crianza</div>
+    <div class="bodega">Palacio Quemado · Alange</div>
+    <div class="desc">
+      Uvas: Tempranillo / Cabernet Sauvignon<br>
+      Crianza: 9 meses en barricas de roble francés y americano
     </div>
+    <div class="precio">Copa 2,75€ · Botella 15,00€</div>
   </div>
+</div>
 
-  <!-- RIBERA DEL DUERO -->
-  <h3>Ribera del Duero</h3>
-
-  <div class="vino">
-    <img src="images/botella-generica.png">
-    <div>
-      <h4>Protos Roble</h4>
-      <p class="bodega">Bodegas Protos · Peñafiel</p>
-      <p><strong>Uvas:</strong> Tempranillo</p>
-      <p><strong>Crianza:</strong> 6 meses en barricas de roble francés y americano</p>
-      <p class="precio">Copa: 3,00 € · Botella: 16,00 €</p>
+<div class="vino">
+  <img src="https://raw.githubusercontent.com/Jaygrid/Carta-de-vinos-El-Bizarro/refs/heads/main/Botellas/vinapueba12m.jpeg">
+  <div class="info">
+    <div class="nombre">Viña Puebla 12 Meses</div>
+    <div class="bodega">Bodegas Toribio · Puebla de Sancho Pérez</div>
+    <div class="desc">
+      Uvas: Tempranillo / Cabernet Sauvignon / Garnacha / Syrah / Graciano / Merlot<br>
+      Crianza: 12 meses en barrica de roble americano
     </div>
+    <div class="precio">Copa 2,75€ · Botella 15,00€</div>
   </div>
+</div>
 
-  <div class="vino">
-    <img src="images/botella-generica.png">
-    <div>
-      <h4>Pruno</h4>
-      <p class="bodega">Finca Villacreces · Quintanilla de Onésimo</p>
-      <p><strong>Uvas:</strong> Tempranillo / Cabernet Sauvignon</p>
-      <p><strong>Crianza:</strong> 12 meses en barricas de roble francés</p>
-      <p class="precio">Botella: 19,00 €</p>
+<div class="vino">
+  <img src="https://raw.githubusercontent.com/Jaygrid/Carta-de-vinos-El-Bizarro/refs/heads/main/Botellas/vinapuebasel.jpeg">
+  <div class="info">
+    <div class="nombre">Viña Puebla Selección</div>
+    <div class="bodega">Bodegas Toribio · Puebla de Sancho Pérez</div>
+    <div class="desc">
+      Uvas: Tempranillo / Cabernet Sauvignon / Garnacha Tintorera / Syrah<br>
+      Crianza: 6 meses en barrica de roble americano
     </div>
+    <div class="precio">Botella 20,00€</div>
   </div>
+</div>
 
-  <div class="vino">
-    <img src="images/botella-generica.png">
-    <div>
-      <h4>Emilio Moro</h4>
-      <p class="bodega">Emilio Moro · Pesquera del Duero</p>
-      <p><strong>Uvas:</strong> Tempranillo</p>
-      <p><strong>Crianza:</strong> 12 meses en barricas de roble francés y americano</p>
-      <p class="precio">Botella: 28,00 €</p>
+<div class="vino">
+  <img src="https://raw.githubusercontent.com/Jaygrid/Carta-de-vinos-El-Bizarro/refs/heads/main/Botellas/madredelagua.jpeg">
+  <div class="info">
+    <div class="nombre">Madre del Agua</div>
+    <div class="bodega">Bodegas Toribio · Puebla de Sancho Pérez</div>
+    <div class="desc">
+      Uvas: Garnacha Tintorera / Garnacha / Tempranillo / Cabernet Sauvignon<br>
+      Crianza: 9 meses en barricas de roble francés y americano
     </div>
+    <div class="precio">Botella 30,00€</div>
   </div>
+</div>
 
-  <!-- RIOJA -->
-  <h3>Rioja</h3>
-
-  <div class="vino">
-    <img src="images/botella-generica.png">
-    <div>
-      <h4>Izadi Crianza</h4>
-      <p class="bodega">Bodegas Izadi · Villabuena de Álava</p>
-      <p><strong>Uvas:</strong> Tempranillo</p>
-      <p><strong>Crianza:</strong> 14 meses en roble francés y americano</p>
-      <p class="precio">Copa: 3,00 € · Botella: 18,00 €</p>
+<div class="vino">
+  <img src="https://raw.githubusercontent.com/Jaygrid/Carta-de-vinos-El-Bizarro/refs/heads/main/Botellas/hunoblend.jpeg">
+  <div class="info">
+    <div class="nombre">Huno Blend</div>
+    <div class="bodega">Pago Los Balancines · Oliva de Mérida</div>
+    <div class="desc">
+      Uvas: Garnacha Tintorera / Syrah / Cabernet Sauvignon / Graciano<br>
+      Crianza: 12 meses en barricas de roble francés
     </div>
+    <div class="precio">Botella 22,00€</div>
   </div>
+</div>
 
-  <div class="vino">
-    <img src="images/botella-generica.png">
-    <div>
-      <h4>Muga</h4>
-      <p class="bodega">Bodegas Muga · Haro</p>
-      <p><strong>Uvas:</strong> Tempranillo / Garnacha / Graciano / Mazuelo</p>
-      <p><strong>Crianza:</strong> 24 meses en barricas de tonelería propia</p>
-      <p class="precio">Botella: 33,00 €</p>
+<div class="vino">
+  <img src="https://raw.githubusercontent.com/Jaygrid/Carta-de-vinos-El-Bizarro/refs/heads/main/Botellas/ArroyoCab.jpeg">
+  <div class="info">
+    <div class="nombre">Arroyo del Cabrito</div>
+    <div class="bodega">Castúo Wines · Villalba de los Barros</div>
+    <div class="desc">
+      Uvas: Trincadeira<br>
+      Elaboración: 1 mes en tinajas de barro
     </div>
+    <div class="precio">Botella 25,00€</div>
   </div>
+</div>
 
-  <!-- PREMIUM -->
-  <h3>Premium</h3>
+</details>
 
-  <div class="vino">
-    <img src="images/botella-generica.png">
-    <div>
-      <h4>Vega Sicilia Valbuena 5º Año</h4>
-      <p class="bodega">D.O. Ribera del Duero</p>
-      <p><strong>Crianza:</strong> 5 años entre madera y botella</p>
-      <p class="precio">Botella: 160,00 €</p>
+<!-- ================= RIBERA DEL DUERO ================= -->
+<details>
+  <summary>Ribera del Duero</summary>
+
+<div class="vino">
+  <img src="https://raw.githubusercontent.com/Jaygrid/Carta-de-vinos-El-Bizarro/refs/heads/main/Botellas/caramimbreroble.jpeg">
+  <div class="info">
+    <div class="nombre">Carramimbre Roble</div>
+    <div class="bodega">Bodegas Carramimbre · Peñafiel</div>
+    <div class="desc">
+      Uvas: Tempranillo / Cabernet Sauvignon<br>
+      Crianza: De 3 a 6 meses en barricas de roble
     </div>
+    <div class="precio">Copa 3,00€ · Botella 16,00€</div>
   </div>
+</div>
 
-  <div class="vino">
-    <img src="images/botella-generica.png">
-    <div>
-      <h4>Flor de Pingus</h4>
-      <p class="bodega">Dominio de Pingus</p>
-      <p><strong>Uvas:</strong> Tinto Fino</p>
-      <p class="precio">Botella: 210,00 €</p>
+<div class="vino">
+  <img src="https://raw.githubusercontent.com/Jaygrid/Carta-de-vinos-El-Bizarro/refs/heads/main/Botellas/protosroble.jpeg">
+  <div class="info">
+    <div class="nombre">Protos Roble</div>
+    <div class="bodega">Bodegas Protos · Peñafiel</div>
+    <div class="desc">
+      Uvas: Tempranillo<br>
+      Crianza: 6 meses en barricas de roble francés y americano
     </div>
+    <div class="precio">Copa 3,00€ · Botella 16,00€</div>
   </div>
+</div>
 
-</section>
+<div class="vino">
+  <img src="https://raw.githubusercontent.com/Jaygrid/Carta-de-vinos-El-Bizarro/refs/heads/main/Botellas/protos27.jpeg">
+  <div class="info">
+    <div class="nombre">Protos 27</div>
+    <div class="bodega">Bodegas Protos · Peñafiel</div>
+    <div class="desc">
+      Uvas: Tempranillo<br>
+      Crianza: 16 meses en barricas nuevas de roble francés
+    </div>
+    <div class="precio">Botella 27,00€</div>
+  </div>
+</div>
+
+<div class="vino">
+  <img src="https://raw.githubusercontent.com/Jaygrid/Carta-de-vinos-El-Bizarro/refs/heads/main/Botellas/pruno.jpeg">
+  <div class="info">
+    <div class="nombre">Pruno</div>
+    <div class="bodega">Finca Villacreces · Quintanilla de Onésimo</div>
+    <div class="desc">
+      Uvas: Tempranillo / Cabernet Sauvignon<br>
+      Crianza: 12 meses en barricas de roble francés
+    </div>
+    <div class="precio">Botella 19,00€</div>
+  </div>
+</div>
+
+<div class="vino">
+  <img src="https://raw.githubusercontent.com/Jaygrid/Carta-de-vinos-El-Bizarro/refs/heads/main/Botellas/carmelorodero.jpeg">
+  <div class="info">
+    <div class="nombre">Carmelo Rodero 9 Meses</div>
+    <div class="bodega">Carmelo Rodero · Pedrosa del Duero</div>
+    <div class="desc">
+      Uvas: Tempranillo<br>
+      Crianza: 9 meses en barricas de roble
+    </div>
+    <div class="precio">Botella 20,00€</div>
+  </div>
+</div>
+
+<div class="vino">
+  <img src="https://raw.githubusercontent.com/Jaygrid/Carta-de-vinos-El-Bizarro/refs/heads/main/Botellas/arzuaga.jpeg">
+  <div class="info">
+    <div class="nombre">Arzuaga Crianza</div>
+    <div class="bodega">Arzuaga Navarro · Quintanilla de Onésimo</div>
+    <div class="desc">
+      Uvas: Tempranillo / Cabernet Sauvignon / Merlot<br>
+      Crianza: 16 meses en barricas de roble francés y americano
+    </div>
+    <div class="precio">Botella 29,00€</div>
+  </div>
+</div>
+
+<div class="vino">
+  <img src="https://raw.githubusercontent.com/Jaygrid/Carta-de-vinos-El-Bizarro/refs/heads/main/Botellas/fincaresalso.jpeg">
+  <div class="info">
+    <div class="nombre">Finca Resalso</div>
+    <div class="bodega">Emilio Moro · Pesquera del Duero</div>
+    <div class="desc">
+      Uvas: Tempranillo<br>
+      Crianza: 4 meses en barricas de roble francés y americano
+    </div>
+    <div class="precio">Copa 3,00€ · Botella 17,00€ · Magnum 28,00€</div>
+  </div>
+</div>
+
+<div class="vino">
+  <img src="https://raw.githubusercontent.com/Jaygrid/Carta-de-vinos-El-Bizarro/refs/heads/main/Botellas/emiliomoro.jpeg">
+  <div class="info">
+    <div class="nombre">Emilio Moro</div>
+    <div class="bodega">Emilio Moro · Pesquera del Duero</div>
+    <div class="desc">
+      Uvas: Tempranillo<br>
+      Crianza: 12 meses en barricas de roble francés y americano
+    </div>
+    <div class="precio">Botella 28,00€</div>
+  </div>
+</div>
+
+<div class="vino">
+  <img src="https://raw.githubusercontent.com/Jaygrid/Carta-de-vinos-El-Bizarro/refs/heads/main/Botellas/capellanesjoven.jpeg">
+  <div class="info">
+    <div class="nombre">Pago de los Capellanes Joven</div>
+    <div class="bodega">Pago de los Capellanes · Pedrosa del Duero</div>
+    <div class="desc">
+      Uvas: Tempranillo<br>
+      Crianza: 5 meses en barricas de roble francés
+    </div>
+    <div class="precio">Botella 24,00€</div>
+  </div>
+</div>
+
+<div class="vino">
+  <img src="https://raw.githubusercontent.com/Jaygrid/Carta-de-vinos-El-Bizarro/refs/heads/main/Botellas/teofilo.jpeg">
+  <div class="info">
+    <div class="nombre">Teófilo Reyes Crianza</div>
+    <div class="bodega">Teófilo Reyes · Peñafiel</div>
+    <div class="desc">
+      Uvas: Tempranillo<br>
+      Crianza: 15 meses en barricas de roble francés
+    </div>
+    <div class="precio">Botella 25,00€</div>
+  </div>
+</div>
+
+<div class="vino">
+  <img src="https://raw.githubusercontent.com/Jaygrid/Carta-de-vinos-El-Bizarro/refs/heads/main/Botellas/ventalasvacas.jpeg">
+  <div class="info">
+    <div class="nombre">Venta Las Vacas</div>
+    <div class="bodega">Proyecto Uvas Felices · Ribera del Duero</div>
+    <div class="desc">
+      Uvas: Tempranillo<br>
+      Crianza: 12 meses en barricas de roble francés y americano
+    </div>
+    <div class="precio">Botella 25,00€</div>
+  </div>
+</div>
+
+<div class="vino">
+  <img src="https://raw.githubusercontent.com/Jaygrid/Carta-de-vinos-El-Bizarro/refs/heads/main/Botellas/pesqueracrianza.jpeg">
+  <div class="info">
+    <div class="nombre">Pesquera Crianza</div>
+    <div class="bodega">Familia Fernández Rivera · Pesquera del Duero</div>
+    <div class="desc">
+      Uvas: Tempranillo<br>
+      Crianza: 18 meses en barricas de roble americano
+    </div>
+    <div class="precio">Botella 26,00€</div>
+  </div>
+</div>
+
+<div class="vino">
+  <img src="https://raw.githubusercontent.com/Jaygrid/Carta-de-vinos-El-Bizarro/refs/heads/main/Botellas/carrovejas.jpeg">
+  <div class="info">
+    <div class="nombre">Pago de Carraovejas</div>
+    <div class="bodega">Pago de Carraovejas · Peñafiel</div>
+    <div class="desc">
+      Uvas: Tempranillo / Cabernet Sauvignon / Merlot<br>
+      Crianza: 12 meses en barricas de roble francés
+    </div>
+    <div class="precio">Botella 42,00€</div>
+  </div>
+</div>
+
+<div class="vino">
+  <img src="https://raw.githubusercontent.com/Jaygrid/Carta-de-vinos-El-Bizarro/refs/heads/main/Botellas/matarromera.jpeg">
+  <div class="info">
+    <div class="nombre">Matarromera Crianza</div>
+    <div class="bodega">Bodegas Matarromera · Valbuena del Duero</div>
+    <div class="desc">
+      Uvas: Tempranillo / Cabernet Sauvignon<br>
+      Crianza: 12 meses en barricas de roble francés y americano
+    </div>
+    <div class="precio">Botella 34,00€</div>
+  </div>
+</div>
+
+<div class="vino">
+  <img src="https://raw.githubusercontent.com/Jaygrid/Carta-de-vinos-El-Bizarro/refs/heads/main/Botellas/matasnos.jpeg">
+  <div class="info">
+    <div class="nombre">Bosque de Matasnos</div>
+    <div class="bodega">Bosque de Matasnos · Peñaranda del Duero</div>
+    <div class="desc">
+      Uvas: Tempranillo / Merlot / Malbec / Garnacha<br>
+      Crianza: 12 meses en barricas nuevas de roble francés
+    </div>
+    <div class="precio">Botella 36,00€</div>
+  </div>
+</div>
+
+
+
+</details>
+
+<!-- Repite el mismo bloque <details> para:
+     Rioja
+     Otras denominaciones
+     Blancos y Rosados
+     Espumosos
+     Dulces
+     Premium
+-->
+
+<div class="sub" style="margin-top:30px">
+  Precios en euros · IVA incluido
+</div>
 
 </body>
 </html>
